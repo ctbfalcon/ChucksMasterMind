@@ -71,6 +71,7 @@ String DisplayHint(int guess)
                 hint.Append('-');
                 secret.SecretPart[i].MatchedMinus = true;
                 secret.SecretPart[i].Compared = true;
+                Debug.WriteLine("Matched on " + JsonSerializer.Serialize(item) + " with result " + result[i]);
             }
         }
     }
