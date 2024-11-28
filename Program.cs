@@ -1,9 +1,7 @@
 ﻿using ChucksMasterMind;
 using System.Diagnostics;
-using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 public class Program
 {
@@ -57,7 +55,11 @@ public class Program
                 break; }
         }
     }
-
+    /// <summary>
+    /// Validation of the guess to conform to the rules and reject any format errors.
+    /// </summary>
+    /// <param name="guess"></param>
+    /// <returns></returns>
     public static bool ValidateGuess(int guess)
     {
         // Convert the number to a string
@@ -81,7 +83,12 @@ public class Program
         // If all conditions are met, the number is valid
         return true;
     }
-
+    /// <summary>
+    /// returns the hint in the form of a string to display to the user
+    /// </summary>
+    /// <param name="guess"></param>
+    /// <param name="secret"></param>
+    /// <returns></returns>
     public static string DisplayHint(int guess, Secret secret)
     {
         int[] result = guess.ToString().Select(o => Convert.ToInt32(o) - 48).ToArray();//converts int to int[] and the actual number not byte code.
@@ -125,11 +132,11 @@ public class Program
         }
         return hint.ToString();
     }
-    public static void ResetGuessMatches()
-    {
-        throw new NotImplementedException();
-    }
-
+    /// <summary>
+    /// Build the users input from int to a custom class to better iterate over.
+    /// </summary>
+    /// <param name="result"></param>
+    /// <returns></returns>
     public static Guess BuildGuess(int[] result)
     {
         Guess guess = new Guess();
@@ -139,7 +146,10 @@ public class Program
         }
         return guess;
     }
-
+    /// <summary>
+    /// resets the flags in the secret to accept the next guess
+    /// </summary>
+    /// <param name="secret"></param>
     public static void ResetSecretMatches(Secret secret)
     {
         foreach (GuessNumber item in secret.SecretPart)
@@ -149,6 +159,10 @@ public class Program
             item.Compared = false;
         }
     }
+    /// <summary>
+    /// Generates the secret code as a random pick from the list of ints.
+    /// </summary>
+    /// <returns></returns>
     public static Secret GetSecret()
     {
         var numbers = new int[] { 1, 2, 3, 4, 5, 6, };
@@ -168,8 +182,11 @@ public class Program
 
         return secret;
     }
+    /// <summary>
+    /// Simple display of the rules to the user.
+    /// </summary>
     public static void DisplayRules()
-    {
+    {//could use a stringbuilder here.
         Console.WriteLine("**************************************************************");
         Console.WriteLine("***  Your guess must have 4 digits.                        ***");
         Console.WriteLine("***  Your guess can only use numbers 1-6                   ***");
