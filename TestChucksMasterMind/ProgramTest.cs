@@ -6,7 +6,14 @@ namespace Tests
     public class ProgramTests
     {
         [TestMethod()]
-        public void DisplayHintTest()
+        [DataRow(5555, "")]
+        [DataRow(5235, "++")]
+        [DataRow(4235, "++-")]
+        [DataRow(4231, "++--")]
+        [DataRow(4444, "+")]
+        [DataRow(1234, "++++")]
+        [DataRow(4321, "----")]
+        public void DisplayHintTest(int i, string expected)
         {
             Secret testsecret = new();
             testsecret.SecretPart.Add(new GuessNumber(1, 0));
@@ -14,21 +21,23 @@ namespace Tests
             testsecret.SecretPart.Add(new GuessNumber(3, 2));
             testsecret.SecretPart.Add(new GuessNumber(4, 3));
 
+            var hint = Program.DisplayHint(i, testsecret);
+            Assert.IsTrue(hint == expected, "The " + i + " guess failed." + hint + " does not equal " + expected);
 
-            var hint = Program.DisplayHint(5555, testsecret);
-            Assert.IsTrue(hint == "", "The 5555 guess failed.");
-            hint = Program.DisplayHint(5235, testsecret);
-            Assert.IsTrue(hint == "++", "The 5235 guess failed." + hint + " does not equal ++");
-            hint = Program.DisplayHint(4235, testsecret);
-            Assert.IsTrue(hint == "++-", "The 4235 guess failed." + hint + " does not equal ++-");
-            hint = Program.DisplayHint(4231, testsecret);
-            Assert.IsTrue(hint == "++--", "The 4231 guess failed." + hint + " does not equal ++--");
-            hint = Program.DisplayHint(4444, testsecret);
-            Assert.IsTrue(hint == "+", "The 4444 guess failed." + hint + " does not equal +");
-            hint = Program.DisplayHint(1234, testsecret);
-            Assert.IsTrue(hint == "++++", "The 4444 guess failed." + hint + " does not equal ++++");
-            hint = Program.DisplayHint(4321, testsecret);
-            Assert.IsTrue(hint == "----", "The 4321 guess failed." + hint + " does not equal ----");
+            //var hint = Program.DisplayHint(5555, testsecret);
+            //Assert.IsTrue(hint == "", "The 5555 guess failed.");
+            //hint = Program.DisplayHint(5235, testsecret);
+            //Assert.IsTrue(hint == "++", "The 5235 guess failed." + hint + " does not equal ++");
+            //hint = Program.DisplayHint(4235, testsecret);
+            //Assert.IsTrue(hint == "++-", "The 4235 guess failed." + hint + " does not equal ++-");
+            //hint = Program.DisplayHint(4231, testsecret);
+            //Assert.IsTrue(hint == "++--", "The 4231 guess failed." + hint + " does not equal ++--");
+            //hint = Program.DisplayHint(4444, testsecret);
+            //Assert.IsTrue(hint == "+", "The 4444 guess failed." + hint + " does not equal +");
+            //hint = Program.DisplayHint(1234, testsecret);
+            //Assert.IsTrue(hint == "++++", "The 4444 guess failed." + hint + " does not equal ++++");
+            //hint = Program.DisplayHint(4321, testsecret);
+            //Assert.IsTrue(hint == "----", "The 4321 guess failed." + hint + " does not equal ----");
         }
 
         [TestMethod()]
