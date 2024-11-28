@@ -26,6 +26,9 @@ public class Program
                 {
                     guess = Convert.ToInt32(Console.ReadLine());//get 4 digits.
                     goodguess = ValidateGuess(guess);
+                    if (!goodguess) {
+                        Console.WriteLine("Your guess was not formatted correctly. Refer to the rules.");
+                    }
                 }
                 catch (Exception)
                 {
@@ -34,7 +37,12 @@ public class Program
             }
 
             var result = DisplayHint(guess, secret);
-            Console.WriteLine("Your hint: " + result);//display the hint to user.
+            if (result == "") {
+                Console.WriteLine("Nothing Matched. Try again.");
+            }
+            else {
+                Console.WriteLine("Your hint: " + result);//display the hint to user.
+            }
 
             attempts++;//increase attempts count
 
@@ -45,7 +53,7 @@ public class Program
                 break;
             }
             if (attempts == 10) {
-                Console.WriteLine("Sorry you loose");
+                Console.WriteLine("Attempts reached. Sorry you loose");
                 break; }
         }
     }
