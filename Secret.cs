@@ -12,17 +12,26 @@ namespace ChucksMasterMind
         //List<Number> numbers;
         public Secret()
         {
-            this.SecretPart = new List<Number>();
+            this.SecretPart = new List<GuessNumber>();
         }
-        public List<Number> SecretPart {  get; set; }
+        public List<GuessNumber> SecretPart { get; set; }
     }
-    public class Number
+    public class GuessNumber
     {
-        public int Index {  get; set; }
-        public Number(int value, int index) { this.Value = value; this.Index = index; }
+        public int Index { get; set; }
+        public GuessNumber(int value, int index) { this.Value = value; this.Index = index; }
         public int Value { get; set; } = 0;
         public bool Compared { get; set; } = false;
-        public bool MatchedPlus {  get; set; } = false;
+        public bool MatchedPlus { get; set; } = false;
         public bool MatchedMinus { get; set; } = false;
+        public bool GuessMatchedAlready { get; set; } = false;
+    }
+    public class Guess
+    {
+        public Guess()
+        {
+            this.GuessPart = new List<GuessNumber>();
+        }
+        public List<GuessNumber> GuessPart { get; set; }
     }
 }
