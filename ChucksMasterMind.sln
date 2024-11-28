@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChucksMasterMind", "ChucksMasterMind.csproj", "{49003A3C-ABE0-42B6-9E3E-EB73D90FA0B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestChucksMasterMind", "TestChucksMasterMind\TestChucksMasterMind.csproj", "{A06FD236-3706-454C-8D5E-1F1207803FE6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{49003A3C-ABE0-42B6-9E3E-EB73D90FA0B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49003A3C-ABE0-42B6-9E3E-EB73D90FA0B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49003A3C-ABE0-42B6-9E3E-EB73D90FA0B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A06FD236-3706-454C-8D5E-1F1207803FE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A06FD236-3706-454C-8D5E-1F1207803FE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A06FD236-3706-454C-8D5E-1F1207803FE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A06FD236-3706-454C-8D5E-1F1207803FE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
